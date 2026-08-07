@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>LZA Seguros | Corretora de Seguros em João Pessoa PB</title>
+    <meta name="description" content="Encontre seguros personalizados em João Pessoa. Seguro Auto, Residencial, Vida, Empresarial e mais. Atendimento especializado pela LZA Seguros.">
+    <meta name="keywords" content="corretora de seguros João Pessoa, seguro auto João Pessoa, seguro residencial João Pessoa, seguro empresarial João Pessoa, seguro de vida João Pessoa">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "InsuranceAgency",
+          "@id": "https://www.lzaseguros.com/#organization",
+          "name": "LZA Seguros",
+          "description": "Encontre seguros personalizados em João Pessoa. Seguro Auto, Residencial, Vida e Empresarial.",
+          "url": "https://www.lzaseguros.com/",
+          "telephone": "+5583000000000",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua das Proteções, 100",
+            "addressLocality": "João Pessoa",
+            "addressRegion": "PB",
+            "addressCountry": "BR"
+          }
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Corretagem de Seguros",
+          "provider": {
+            "@id": "https://www.lzaseguros.com/#organization"
+          },
+          "areaServed": "João Pessoa e Região"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Variáveis de Tema */
+        :root {
+            --primary: #09371F; 
+            --primary-light: #105934; 
+            --accent: #F47C36; 
+            --accent-hover: #e06c2b;
+            --bg-main: #CDCDB5; 
+            --bg-light: #CDCDB5; /* Fundo unificado em todo o site */
+            --bg-beige: #CDCDB5; /* Fundo unificado em todo o site */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        /* Resets e Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { color: var(--text-main); background-color: var(--bg-main); line-height: 1.6; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Utilitários */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-padding { padding: 80px 0; }
+        .bg-light { background-color: var(--bg-light); }
+        .bg-beige { background-color: var(--bg-beige); }
+        .text-center { text-align: center; }
+        
+        /* Botões */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 16px 32px; border-radius: 50px; font-weight: 600;
+            transition: var(--transition); cursor: pointer; border: none; gap: 8px;
+        }
+        .btn-primary { background-color: var(--accent); color: var(--white); }
+        .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 15px rgba(244, 124, 54, 0.3); }
+        .btn-outline { background-color: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background-color: var(--primary); color: var(--white); transform: translateY(-2px); }
+
+        /* Navbar */
+        header { background: var(--bg-main); padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Ajustes Logo Responsiva e Redonda (Tamanho aumentado) */
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { 
+            height: 90px; /* Aumentado de 70px para 90px */
+            width: 90px; /* Aumentado de 70px para 90px */
+            object-fit: cover; 
+            border-radius: 50%; /* Aplica o formato redondo */
+            transition: var(--transition); 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Sombra para destacar a logo circular */
+        }
+        
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { font-weight: 500; transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero Section */
+        .hero { padding: 60px 0 100px; background: var(--bg-main); }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-content h1 { font-size: 54px; line-height: 1.1; color: var(--primary); margin-bottom: 24px; font-weight: 800; letter-spacing: -1px; }
+        .hero-content p { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; max-width: 480px; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-image { position: relative; }
+        /* Alterado object-fit para cover para as bordas arredondadas funcionarem na imagem transparente */
+        .hero-image img { border-radius: var(--radius-lg); object-fit: cover; height: 500px; width: 100%; box-shadow: var(--shadow); } 
+        .trust-badge { position: absolute; bottom: -20px; left: -20px; background: var(--white); padding: 20px; border-radius: var(--radius-md); box-shadow: var(--shadow); display: flex; align-items: center; gap: 12px; }
+        .trust-badge i { font-size: 32px; color: var(--accent); }
+
+        /* Por que escolher a LZA */
+        .benefits-banner { background: var(--primary); color: var(--white); padding: 40px 0; margin-top: -40px; position: relative; z-index: 10; border-radius: var(--radius-md); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+        .benefit-item i { font-size: 32px; color: var(--accent); margin-bottom: 12px; }
+        .benefit-item p { font-size: 15px; font-weight: 500; }
+
+        /* Seção de Seguros (Cards) */
+        .section-header { text-align: center; margin-bottom: 50px; max-width: 600px; margin-inline: auto; }
+        .section-header h2 { font-size: 36px; color: var(--primary); margin-bottom: 16px; font-weight: 700; }
+        .section-header p { color: var(--text-muted); font-size: 18px; }
+        
+        .insurance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: var(--white); border-radius: var(--radius-lg); padding: 32px; border: 1px solid #e2e8f0; transition: var(--transition); box-shadow: var(--shadow); display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); }
+        .card-icon { width: 56px; height: 56px; background: var(--bg-light); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--accent); margin-bottom: 24px; }
+        .card h3 { font-size: 24px; color: var(--primary); margin-bottom: 12px; }
+        .card > p { color: var(--text-muted); margin-bottom: 20px; font-size: 15px; }
+        .card-benefits { margin-bottom: 24px; flex-grow: 1; }
+        .card-benefits li { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 14px; color: var(--text-main); }
+        .card-benefits li i { color: #22c55e; font-weight: bold; }
+        .card-target { background: var(--bg-light); padding: 12px; border-radius: 8px; font-size: 13px; color: var(--text-muted); margin-bottom: 24px; font-style: italic; }
+        .card .btn { width: 100%; padding: 12px; font-size: 15px; }
+
+        /* Sobre Izabela */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-image { border-radius: var(--radius-lg); overflow: hidden; position: relative; }
+        .about-image img { width: 100%; height: auto; display: block; }
+        .susep-tag { display: inline-block; background: var(--bg-light); color: var(--text-muted); padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+
+        /* Como Funciona */
+        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step-counter; }
+        .step-card { background: var(--white); padding: 32px 24px; border-radius: var(--radius-md); text-align: center; position: relative; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03); }
+        .step-card::before { counter-increment: step-counter; content: "0" counter(step-counter); display: block; font-size: 40px; font-weight: 800; color: var(--bg-light); margin-bottom: 4px; }
+        .step-emoji { font-size: 44px; margin-bottom: 16px; display: block; }
+        .step-card h4 { color: var(--primary); font-size: 18px; }
+
+        /* Depoimentos */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .testimonial-card { background: var(--white); padding: 32px; border-radius: var(--radius-md); border: 1px solid #e2e8f0; }
+        .stars { color: #eab308; margin-bottom: 16px; }
+        .quote { font-style: italic; color: var(--text-muted); margin-bottom: 24px; font-size: 15px; }
+        .client-info h5 { color: var(--primary); font-size: 16px; }
+        .client-info span { font-size: 13px; color: var(--accent); }
+
+        /* FAQ */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border: 1px solid #e2e8f0; border-radius: var(--radius-md); margin-bottom: 16px; overflow: hidden; }
+        .faq-question { padding: 20px 24px; background: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--primary); }
+        .faq-answer { padding: 0 24px 20px; background: var(--white); color: var(--text-muted); display: none; }
+        .faq-item.active .faq-answer { display: block; }
+
+        /* Footer e Contato */
+        footer { background: var(--primary); color: var(--white); padding: 80px 0 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 60px; }
+        .footer-logo { font-size: 28px; font-weight: 800; color: var(--white); margin-bottom: 16px; display: block; }
+        .footer-logo span { color: var(--accent); }
+        .footer-col h4 { color: var(--white); margin-bottom: 24px; font-size: 18px; }
+        .footer-col ul li { margin-bottom: 12px; color: #cbd5e1; }
+        .footer-col ul li a:hover { color: var(--accent); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; color: #94a3b8; font-size: 14px; }
+        .compliance-note { font-size: 12px; color: #64748b; margin-top: 16px; display: block; }
+
+        /* WhatsApp FAB */
+        .whatsapp-fab { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 1000; transition: var(--transition); }
+        .whatsapp-fab:hover { transform: scale(1.1); color: white; }
+
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-content h1 { font-size: 40px; }
+            .benefits-grid, .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+            .logo img { height: 70px; width: 70px; } /* Ajuste proporcional de tamanho da logo para tablets */
+        }
+        @media (max-width: 768px) {
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .benefits-grid, .steps-grid, .footer-grid { grid-template-columns: 1fr; }
+            .benefits-banner { margin-top: 0; border-radius: 0; }
+            .logo img { height: 60px; width: 60px; } /* Ajuste proporcional de tamanho da logo para celulares */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a class="logo" href="#">
+                <img src="https://i.ibb.co/yBb4jz21/403289925-1543922242813137-6276639466065952555-n.jpg" alt="LZA Seguros" border="0">
+            </a>
+            <nav class="nav-links">
+                <a href="#solucoes">Seguros</a>
+                <a href="#sobre">Sobre Nós</a>
+                <a href="#como-funciona">Como Funciona</a>
+                <a href="#faq">Dúvidas</a>
+            </nav>
+            <a href="https://wa.me/5583000000000?text=Olá,%20vi%20o%20site%20da%20LZA%20Seguros%20e%20gostaria%20de%20fazer%20uma%20cotação." class="btn btn-primary" target="_blank">
+                <i class="ph ph-whatsapp-logo"></i> Fazer uma cotação
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Sua segurança, nossa prioridade!</h1>
+                <p>Na LZA Seguros você encontra as melhores opções de proteção para sua vida, família, veículo e negócio. Atendimento humano, sem burocracia excessiva.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5583000000000?text=Olá,%20vi%20o%20site%20da%20LZA%20Seguros%20e%20gostaria%20de%20fazer%20uma%20cotação." class="btn btn-primary" target="_blank">Fazer uma cotação</a>
+                    <a href="#sobre" class="btn btn-outline">Falar com especialista</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://i.ibb.co/Pv5dKRJt/Imovel-Corretor-Segurando-Maquete-de-Casa-Moderna-PNG-Transparente.png" alt="Corretor segurando maquete de casa moderna">
+                <div class="trust-badge">
+                    <i class="ph-fill ph-shield-check"></i>
+                    <div>
+                        <strong style="display:block; color:var(--primary);">Atendimento Humano</strong>
+                        <span style="font-size:13px; color:var(--text-muted);">Sua segurança é nossa prioridade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="benefits-banner">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="ph ph-chats"></i>
+                    <p>Atendimento<br>personalizado</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <p>Análise detalhada<br>do seu perfil</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="ph ph-scales"></i>
+                    <p>Comparação das<br>melhores opções</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="ph ph-lifebuoy"></i>
+                    <p>Suporte total em<br>caso de sinistro</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" style="text-align: center; margin-top: 40px; margin-bottom: 20px;">
+        <p style="font-size: 18px; color: var(--primary); font-weight: 500;">
+            "Mais do que vender seguros, ajudamos você a encontrar a proteção adequada para sua realidade."
+        </p>
+    </div>
+
+    <section id="solucoes" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossas Soluções</h2>
+                <p>Escolha a categoria e solicite uma cotação sob medida para você.</p>
+            </div>
+
+            <div class="insurance-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="ph ph-car-profile"></i></div>
+                    <h3>Seguro Auto</h3>
+                    <p>Proteção para seu veículo contra imprevistos.</p>
+                    <ul class="card-benefits">
+                        <li><i class="ph ph-check"></i> Roubo e furto</li>
+                        <li><i class="ph ph-check"></i> Colisão</li>
+                        <li><i class="ph ph-check"></i> Assistência 24 horas</li>
+                        <li><i class="ph ph-check"></i> Coberturas personalizadas</li>
+                    </ul>
+                    <div class="card-target">Indicado para: Motoristas que desejam dirigir com mais tranquilidade.</div>
+                    <a href="https://wa.me/5583000000000?text=Olá,%20gostaria%20de%20uma%20cotação%20para%20Seguro%20Auto." class="btn btn-outline" target="_blank">Quero minha cotação</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="ph ph-house-line"></i></div>
+                    <h3>Seguro Residencial</h3>
+                    <p>Cuidado e segurança para sua casa e patrimônio.</p>
+                    <ul class="card-benefits">
+                        <li><i class="ph ph-check"></i> Incêndio e raio</li>
+                        <li><i class="ph ph-check"></i> Danos elétricos</li>
+                        <li><i class="ph ph-check"></i> Roubo e furto</li>
+                        <li><i class="ph ph-check"></i> Assistência residencial</li>
+                    </ul>
+                    <div class="card-target">Indicado para: Proprietários ou inquilinos que valorizam seu lar.</div>
+                    <a href="https://wa.me/5583000000000?text=Olá,%20gostaria%20de%20uma%20cotação%20para%20Seguro%20Residencial." class="btn btn-outline" target="_blank">Quero minha cotação</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="ph ph-heartbeat"></i></div>
+                    <h3>Seguro Vida</h3>
+                    <p>Proteção financeira para você e quem você ama.</p>
+                    <ul class="card-benefits">
+                        <li><i class="ph ph-check"></i> Indenização por morte</li>
+                        <li><i class="ph ph-check"></i> Invalidez acidental</li>
+                        <li><i class="ph ph-check"></i> Doenças graves</li>
+                        <li><i class="ph ph-check"></i> Assistência funeral</li>
+                    </ul>
+                    <div class="card-target">Indicado para: Pessoas que buscam garantir o futuro da família.</div>
+                    <a href="https://wa.me/5583000000000?text=Olá,%20gostaria%20de%20uma%20cotação%20para%20Seguro%20de%20Vida." class="btn btn-outline" target="_blank">Quero minha cotação</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="ph ph-buildings"></i></div>
+                    <h3>Seguro Empresarial</h3>
+                    <p>Proteção para seu negócio continuar seguro e crescendo.</p>
+                    <ul class="card-benefits">
+                        <li><i class="ph ph-check"></i> Incêndio e explosão</li>
+                        <li><i class="ph ph-check"></i> Danos a equipamentos</li>
+                        <li><i class="ph ph-check"></i> Roubo de bens</li>
+                        <li><i class="ph ph-check"></i> Responsabilidade civil</li>
+                    </ul>
+                    <div class="card-target">Indicado para: Empreendedores que protegem seu ganha-pão.</div>
+                    <a href="https://wa.me/5583000000000?text=Olá,%20gostaria%20de%20uma%20cotação%20para%20Seguro%20Empresarial." class="btn btn-outline" target="_blank">Quero minha cotação</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="ph ph-stethoscope"></i></div>
+                    <h3>Seguro Saúde</h3>
+                    <p>Acesso à melhor rede médica para sua saúde.</p>
+                    <ul class="card-benefits">
+                        <li><i class="ph ph-check"></i> Consultas e exames</li>
+                        <li><i class="ph ph-check"></i> Internações e cirurgias</li>
+                        <li><i class="ph ph-check"></i> Rede credenciada ampla</li>
+                    </ul>
+                    <div class="card-target">Indicado para: Famílias e empresas que priorizam bem-estar.</div>
+                    <a href="https://wa.me/5583000000000?text=Olá,%20gostaria%20de%20uma%20cotação%20para%20Seguro%20Saúde." class="btn btn-outline" target="_blank">Quero minha cotação</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="ph ph-airplane-tilt"></i></div>
+                    <h3>Seguro Viagem</h3>
+                    <p>Mais tranquilidade durante suas viagens.</p>
+                    <ul class="card-benefits">
+                        <li><i class="ph ph-check"></i> Despesas médicas</li>
+                        <li><i class="ph ph-check"></i> Extravio de bagagem</li>
+                        <li><i class="ph ph-check"></i> Repatriação</li>
+                    </ul>
+                    <div class="card-target">Indicado para: Viajantes a lazer ou negócios.</div>
+                    <a href="https://wa.me/5583000000000?text=Olá,%20gostaria%20de%20uma%20cotação%20para%20Seguro%20Viagem." class="btn btn-outline" target="_blank">Quero minha cotação</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section-padding">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="Woman_poses_as_insurance_broker_202608071837.jpeg" alt="Izabela, corretora de seguros LZA">
+            </div>
+            <div>
+                <span class="susep-tag">Registro SUSEP: 000000.000000-0</span>
+                <h2 style="font-size: 36px; color: var(--primary); margin-bottom: 24px;">Quem cuida da sua proteção</h2>
+                <p style="font-size: 18px; margin-bottom: 20px;">
+                    Olá, eu sou a <strong>Izabela</strong>.
+                </p>
+                <p style="margin-bottom: 20px; color: var(--text-muted);">
+                    Na LZA Seguros, cada cliente recebe atendimento próximo e personalizado. Meu objetivo é entender sua necessidade e encontrar uma proteção adequada para você, sua família ou seu negócio.
+                </p>
+                <p style="margin-bottom: 32px; color: var(--text-muted);">
+                    Atuamos em João Pessoa e região, construindo relações de confiança e transparência, garantindo que você tenha o suporte necessário antes, durante e principalmente no momento em que precisar utilizar o seu seguro.
+                </p>
+                <a href="https://wa.me/5583000000000?text=Olá%20Izabela,%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20seguros." class="btn btn-primary" target="_blank">
+                    Falar com Izabela
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="como-funciona" class="section-padding bg-beige">
+        <div class="container">
+            <div class="section-header">
+                <h2>Como Funciona</h2>
+                <p>Processo simples, transparente e focado em você.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-emoji">💬</span>
+                    <h4>Você informa sua necessidade.</h4>
+                </div>
+                <div class="step-card">
+                    <span class="step-emoji">🔍</span>
+                    <h4>Analisamos seu perfil.</h4>
+                </div>
+                <div class="step-card">
+                    <span class="step-emoji">💡</span>
+                    <h4>Buscamos as melhores opções.</h4>
+                </div>
+                <div class="step-card">
+                    <span class="step-emoji">🛡️</span>
+                    <h4>Você escolhe a proteção ideal.</h4>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="https://wa.me/5583000000000?text=Olá,%20vi%20o%20site%20da%20LZA%20Seguros%20e%20gostaria%20de%20fazer%20uma%20cotação." class="btn btn-primary" target="_blank">Solicitar cotação agora</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que dizem nossos clientes</h2>
+                <p>A confiança é o nosso maior patrimônio.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Depoimento real de cliente descrevendo o atendimento atencioso na hora de contratar."</p>
+                    <div class="client-info">
+                        <h5>Nome do Cliente</h5>
+                        <span>Seguro Auto</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Depoimento real de cliente elogiando o suporte rápido durante um momento de imprevisto."</p>
+                    <div class="client-info">
+                        <h5>Nome do Cliente</h5>
+                        <span>Seguro Residencial</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Depoimento real de cliente sobre a clareza e transparência na explicação das coberturas."</p>
+                    <div class="client-info">
+                        <h5>Nome do Cliente</h5>
+                        <span>Seguro Vida</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas principais dúvidas sobre contratação de seguros.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Como funciona uma cotação? <i class="ph ph-caret-down"></i></div>
+                    <div class="faq-answer"><br>Avaliamos suas informações, buscamos em diversas seguradoras parceiras e apresentamos as propostas que melhor se adequam ao seu perfil e orçamento.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Qual seguro combina com minha necessidade? <i class="ph ph-caret-down"></i></div>
+                    <div class="faq-answer"><br>Isso depende do seu momento de vida. Nossa corretora, Izabela, fará perguntas chave para entender suas prioridades e indicar as coberturas exatas.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso contratar mais de um seguro? <i class="ph ph-caret-down"></i></div>
+                    <div class="faq-answer"><br>Com certeza! É muito comum clientes protegerem o carro, a casa e a vida simultaneamente para garantir tranquilidade completa.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Como funciona o acionamento do seguro? <i class="ph ph-caret-down"></i></div>
+                    <div class="faq-answer"><br>Em caso de sinistro, você pode acionar a central 24h da seguradora ou entrar em contato direto conosco via WhatsApp para receber toda a orientação necessária.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">O que preciso para contratar? <i class="ph ph-caret-down"></i></div>
+                    <div class="faq-answer"><br>Documentos básicos (CNH/RG, CPF, Comprovante de Residência) e informações do bem a ser segurado (como documento do carro ou CNPJ da empresa).</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">O seguro possui franquia? <i class="ph ph-caret-down"></i></div>
+                    <div class="faq-answer"><br>Alguns seguros, como o de Automóvel e Residencial (para certas coberturas), possuem franquia. Tudo é explicado de forma transparente antes da contratação, garantindo proteção conforme as condições contratadas.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: var(--radius-lg); padding: 60px 40px; text-align: center; color: white;">
+                <h2 style="font-size: 36px; margin-bottom: 20px;">Pronto para proteger suas conquistas?</h2>
+                <p style="font-size: 18px; margin-bottom: 32px; color: #cbd5e1;">Fale conosco via WhatsApp ou preencha suas informações para receber uma cotação.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/5583000000000?text=Olá,%20vi%20o%20site%20da%20LZA%20Seguros%20e%20gostaria%20de%20fazer%20uma%20cotação." class="btn" style="background: white; color: var(--primary);" target="_blank">
+                        Receber uma cotação
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">LZA <span>Seguros</span></a>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">Sua segurança é nossa prioridade.</p>
+                    <p style="color: #cbd5e1; font-size: 14px;">Corretora responsável: Izabela<br>SUSEP: 000000.000000-0</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#solucoes">Nossos Seguros</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#faq">Dúvidas Frequentes</a></li>
+                        <li><a href="https://wa.me/5583000000000" target="_blank">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato & Endereço</h4>
+                    <ul>
+                        <li><i class="ph ph-whatsapp-logo"></i> (83) 00000-0000</li>
+                        <li><i class="ph ph-instagram-logo"></i> <a href="https://www.instagram.com/lzaseguros/" target="_blank">@lzaseguros</a></li>
+                        <li><i class="ph ph-map-pin"></i> Rua das Proteções, 100<br>João Pessoa - PB</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LZA Seguros. Todos os direitos reservados.</p>
+                <span class="compliance-note">*A aceitação do seguro estará sujeita à análise do risco. Proteção conforme as condições gerais e apólice contratada.</span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5583000000000?text=Olá,%20vi%20o%20site%20da%20LZA%20Seguros%20e%20gostaria%20de%20fazer%20uma%20cotação." class="whatsapp-fab" target="_blank" aria-label="Falar no WhatsApp">
+        <i class="ph ph-whatsapp-logo"></i>
+    </a>
+
+    <script>
+        // Script para acordeão do FAQ
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
